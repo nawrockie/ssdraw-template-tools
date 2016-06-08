@@ -1,0 +1,133 @@
+EPN, Wed Oct  8 14:59:59 2014
+<[14_1008_gp1i_better_model]> pwd
+/groups/eddy/home/nawrockie/notebook/14_1008_gp1i_better_model
+
+Purpose: Investigate making a better group 1 intron models, and possibly
+         multiple models.
+
+=============================
+EPN, Wed Oct  8 15:00:18 2014
+
+I hope to make a set of models to use with RNAVORE to find group 1
+introns. 
+
+First, I want to create an esl-ssdraw diagram of the Rfam model
+RF00028 from Rfam 12.0.
+
+I need to remind myself how I make these SS diagrams, using Inkscape
+to modify and scripts to convert that inkscape to postscript.
+
+I last did this for LSU in
+/groups/eddy/home/nawrockie/notebook/13_0910_lsu_ss_diagrams
+
+I actually did this mostly locally on my macbook pro, and I'll make a
+copy of this directory on there to work on this.
+
+--------------------------------
+On my macbook pro:
+
+Getting the scripts I need to create hte postscript files:
+
+<[14_1008_gp1i_better_model]> pwd
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model
+<[14_1008_gp1i_better_model]> mkdir from_13_0910_dir
+<[14_1008_gp1i_better_model]> cp ~/Dropbox/work/notebook/13_0910_lsu_ss_diagrams/svg2ps.pl ./from_13_0910_dir/
+<[14_1008_gp1i_better_model]> cp ~/Dropbox/work/notebook/13_0910_lsu_ss_diagrams/ps2svg.pl ./from_13_0910_dir/
+<[14_1008_gp1i_better_model]> cp from_13_0910_dir/* ./
+
+====================================
+EPN, Thu Oct  9 10:09:44 2014
+
+Actually I belive I did this even more recently in:
+../13_1216_talk_janelia_jsss/5s-ss-diagrams/
+
+I'll get the scripts from there, because they're probably more up to
+date:
+
+<[rfam12-ss-diagram]> pwd
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram
+
+<[rfam12-ss-diagram]> cp
+../../13_1216_talk_janelia_jsss/5s-ss-diagrams/*pl .
+
+<[rfam12-ss-diagram]> cp ../../13_1216_talk_janelia_jsss/5s-ss-diagrams/5s-ssdraw.ps .
+
+<[rfam12-ss-diagram]> perl ps2svg.pl RF00028-ssdraw.ps > RF00028-v1.svg
+
+I have the Rfam 12.0 (rfco.pl created) RF00028 dir here:
+<[RF00028-Rfam12.0]> pwd
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/RF00028-Rfam12.0
+
+------------------------
+
+I've realized that there CRW has group I intron information, and I can
+use that as a starting point for the group I introns.
+
+The trick is I need to dig up my scripts for converting the CRW PS
+file into esl-ssdraw format.
+
+Getting the file I need to convert coords:
+<[rfam12-ss-diagram]> cp ~/Dropbox/work/notebook/13_0910_lsu_ss_diagrams/ecoli-091013/crw2ss-coords.pl .
+
+<[rfam12-ss-diagram]> cp a.I1.c.N.tabacum.C3.tLEU.ps crw.249.ps
+
+<[rfam12-ss-diagram]> perl crw2ss-coords.pl 1.2 -105 500 wking.a.I1.c.N.tabacum.C3.tLEU.ps > crw.249.ps
+
+TO DO: 
+Work on this:
+crw.249-ssdraw.ps
+
+Try to get it into svg and then back to ps, so it redraws positions
+and basepair ticks.
+
+===================================
+EPN, Fri Oct 10 10:03:01 2014
+
+
+<[rfam12-ss-diagram]> perl ps2svg.pl crw.251-ssdraw.ps > crw.251.v1.svg
+
+Breaking for lunch, still trying to get SS-draw template in 251
+columns to look right:
+
+<[rfam12-ss-diagram]> perl ps2svg.pl crw.251.v20.ps > crw.251.v21.svg 
+
+TO DO:
+
+Work on fixing crw.251.v27.svg
+
+============================
+EPN, Mon Oct 13 11:11:43 2014
+
+<[rfam12-ss-diagram]> perl svg2ps.pl -T 10 -R crw.251.v27.svg crw.251-ssdraw.ps M16898.c251.stk > crw.251.v28.ps
+<[rfam12-ss-diagram]> perl ps2svg.pl crw.251.v28.ps > crw.251.v29.svg
+
+==========================
+EPN, Tue Oct 14 10:35:17 2014
+
+I now have the 251 template:
+
+<[rfam12-ss-diagram]> cp RF00028-ssdraw.ps bkups/14_1014-1/
+<[rfam12-ss-diagram]> pwd
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram
+
+Making diagrams of the SEED:
+
+<[rfam12-ss-diagram]> esl-ssdraw --indi RF00028.stk RF00028-ssdraw.ps seed-indi.ps
+<[rfam12-ss-diagram]> esl-ssdraw RF00028.stk RF00028-ssdraw.ps seed.ps
+
+===============================
+EPN, Wed Oct 15 11:10:07 2014
+
+I tried to map the helix numbers from the CRW onto my esl-ssdraw
+diagram and realized there is a psuedoknot that Infernal cannot model
+(P7). I believe I can relatively easily rearrange the ssdraw diagram
+to juxtapose the left and right half of these stems to make it easier
+to see if a cnadidate has that pseuodknot.
+
+Doing that:
+Fixed the ssdraw template:
+
+<[rfam12-ss-diagram]> cp new-RF00028-ssdraw.ps orig-RF00028-ssdraw.ps RF00028-ssdraw.ps bkups/14_1015-1/
+
+-------------------------------
+

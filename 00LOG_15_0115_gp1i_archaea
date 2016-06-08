@@ -1,0 +1,87 @@
+EPN, Fri Jan 16 11:27:40 2015
+
+<[15_0115_gp1i_archaea]> pwd
+/Users/nawrockie/Dropbox/work/notebook/15_0115_gp1i_archaea
+
+Making a esl-ssdraw SS tempalte for the IB4 model.
+
+<[IB4-ssdraw-template-15-0116]> pwd
+/Users/nawrockie/Dropbox/work/notebook/15_0115_gp1i_archaea/IB4-ssdraw-template-15-0116
+
+<[IB4-ssdraw-template-15-0116]> ls ~/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/*pl
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/crw2ss-coords.pl
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/ps2svg.pl
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/svg2ps.pl
+/Users/nawrockie/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/tmp-svg2ps.pl
+
+<[IB4-ssdraw-template-15-0116]> cp ~/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/ps2svg.pl ./
+<[IB4-ssdraw-template-15-0116]> cp ~/Dropbox/work/notebook/14_1008_gp1i_better_model/rfam12-ss-diagram/svg2ps.pl ./
+
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl RF00028-ssdraw.ps > IB4-ssdraw-v1.svg
+
+=============================
+EPN, Tue Jan 20 10:45:49 2015
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v1.svg RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v2.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v2.ps > IB4-ssdraw-v3.svg
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v3.svg
+RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v4.ps
+
+End of day:
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v13.svg RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v14.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v14.ps > IB4-ssdraw-v15.svg
+
+=============================
+EPN, Wed Jan 21 16:29:36 2015
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v15.svg RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v16.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v16.ps > IB4-ssdraw-v17.svg
+
+
+===================================
+EPN, Thu Jan 22 06:09:32 2015
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v17.svg RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v18.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v18.ps > IB4-ssdraw-v19.svg
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v21.svg RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v22.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v22.ps > IB4-ssdraw-v23.svg
+
+
+To do:
+1. print out IB4 and RF00028 SS diagrams
+2. label helices and find pknot in IB4
+3. manually reorg structure on paper
+4. reorg structure in inkscape
+
+----------------------------------
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v23.svg RF00028-ssdraw.ps pfam.IB4-consensus-v-IB4.stk > IB4-ssdraw-v24.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v24.ps > IB4-ssdraw-v25.svg
+
+I removed 5 bp from the pfam.IB4-consensus-v-IB4.stk file and changed
+the scale from 1.4 to 1.3 in RF00028-ssdraw.ps
+
+Redrawing:
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v27.svg RF00028-scale-1p3-ssdraw.ps pfam.minus-5bp.IB4-consensus-v-IB4.stk > IB4-ssdraw-v28.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-v28.ps > IB4-ssdraw-v29.svg
+
+I think this may be the final one:
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-v29.svg RF00028-scale-1p2-ssdraw.ps pfam.minus-5bp.IB4-consensus-v-IB4.stk > IB4-ssdraw-v30.ps
+
+------------------------
+Sean wants the SS diagram to follow the early Cech SS diagrams.
+
+I've redone it:
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-cech-1.svg RF00028-scale-1p2-ssdraw.ps pfam.minus-5bp.IB4-consensus-v-IB4.stk > IB4-ssdraw-cech-v2.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-cech-v2.ps > IB4-ssdraw-cech-v3.svg
+
+<[IB4-ssdraw-template-15-0116]> perl svg2ps.pl IB4-ssdraw-cech-v3.svg RF00028-scale-1p2-ssdraw.ps pfam.minus-5bp.IB4-consensus-v-IB4.stk > IB4-ssdraw-cech-v4.ps
+<[IB4-ssdraw-template-15-0116]> perl ps2svg.pl IB4-ssdraw-cech-v4.ps > IB4-ssdraw-cech-v5.svg
+
+<[IB4-ssdraw-template-15-0116]> cp IB4-ssdraw-v6.ps IB4-ssdraw-cech-012215.ps
+
+
+
+   
