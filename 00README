@@ -1,0 +1,8 @@
+EPN, Wed Jun  8 12:52:16 2016
+
+When using Inkscape 0.91 on Mac OS 10.11:
+- duplicate a nucleotide and then open XML Editor under the Edit menu
+- name the nucleotide x.1, x.2, x.3...x.n if it comes after (3') of 
+  nucleotide x.
+- remove the 'label' attribute  
+

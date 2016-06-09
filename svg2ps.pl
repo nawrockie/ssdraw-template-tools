@@ -741,16 +741,16 @@ sub input_svg_file
   $i = 1;
   while($i <= $max_id) { 
     if(exists($nt_nH{$i})) { 
-      #printf("pushing i: $i\n");
       push(@{$nt_nAR}, $nt_nH{$i});
+      #printf("pushing i: $i (total: %d)\n", scalar(@{$nt_nAR}));
       push(@{$nt_xAR}, $nt_xH{$i} / $scale);
       push(@{$nt_yAR}, (792. - $nt_yH{$i}) / $scale);
       $usedH{$i} = 1;
       $j = 1;
       $ij = $i . "." . $j;
       while(exists($nt_nH{$ij})) { 
-        #printf("pushing ij: $ij\n");
         push(@{$nt_nAR}, $nt_nH{$ij});
+        #printf("pushing ij: $ij (total: %d)\n", scalar(@{$nt_nAR}));
         push(@{$nt_xAR}, $nt_xH{$ij} / $scale);
         push(@{$nt_yAR}, (792. - $nt_yH{$ij}) / $scale);
         $usedH{$ij} = 1;
