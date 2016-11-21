@@ -714,7 +714,8 @@ sub input_svg_file
     if($line =~ m/^<svg/) { 
       $scale = svg_input_scale($svg_or_crwIFH, $line)
         }
-    if($line =~ m/^<text/) { 
+#    if($line =~ m/^<text/) { # apparently this isn't guaranteed to be the first part of a line, but can come anywhere in a line
+    if($line =~ m/<text/) { 
       if(! defined $scale) { die "ERROR did not find SVG header line"; }
       svg_input_nucleotide($svg_or_crwIFH, \$nt, \$x, \$y, \$id);
       $nt_nH{$id} = $nt;
