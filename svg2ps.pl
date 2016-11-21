@@ -213,7 +213,9 @@ sub svg_input_scale {
   while($keep_going) { 
     if($line =~ m/scale=\"(\d+\.*\d*)\"/) { $scale = $1; $keep_going = 0; }
     if($line =~ m/\/>/)                   { $keep_going = 0; }
-    if(! ($line = <$svgIFH>)) { die "ERROR ran out of file when parsing SVG header"; }
+    if($keep_going) { 
+      if(! ($line = <$svgIFH>)) { die "ERROR ran out of file when parsing SVG header"; }
+    }
   }
   if($scale eq "") { die "ERROR didn't read scale in SVG header"; }
   return $scale;
