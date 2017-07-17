@@ -1,0 +1,42 @@
+EPN, Mon Jul 17 09:26:37 2017
+
+Trying to update the SSU-ALIGN 0.1 bacterial ssdraw template to work
+with the 1533 position Rfam 12.1/12.2/12.3 RF00177 structure.
+
+<[17_0622_rfam_16S_model_bounds]> git clone https://github.com/nawrockie/ssdraw-template-tools.git
+
+Aliging the RF00177 consensus seq to the SSU-align 0.1 tempalte
+structure:
+
+<[17_0622_rfam_16S_model_bounds]> cp $UH/tmp/RF00177.cm ./
+<[17_0622_rfam_16S_model_bounds]> cmemit -c RF00177.cm > c.fa
+<[17_0622_rfam_16S_model_bounds]> ssu-align c.fa out-RF00177-c
+<[17_0622_rfam_16S_model_bounds]> ssu-draw out-RF00177-c/
+
+<[17_0622_rfam_16S_model_bounds]> ssu-draw --indi out-RF00177-c/
+
+<[17_0622_rfam_16S_model_bounds]> cp RF00177.ssdraw.ps $UH/tmp/
+
+<[17_0622_rfam_16S_model_bounds]> perl ssdraw-template-tools/ps2svg.pl RF00177.ssdraw.ps > RF00177.ssdraw.v1.svg
+
+Then I made the changes to the .svg file by removing the positions
+that are not included in RF00177 and adding 3 that are added.
+
+Then converting back to ps:
+
+<[17_0622_rfam_16S_model_bounds]> perl ssdraw-template-tools/svg2ps.pl RF00177.ssdraw.v2.svg bacteria-0p1.ps c.stk > 1533.ps
+
+Now doing the same for archaea:
+<[17_0622_rfam_16S_model_bounds]> perl ssdraw-template-tools/ps2svg.pl archaea-0p1.ps > RF01959.ssdraw.svg
+
+<[17_0622_rfam_16S_model_bounds]> cp $UH/tmp/RF01959.cm ./
+<[17_0622_rfam_16S_model_bounds]> cp $UH/tmp/RF01959.stk ./
+
+<[17_0622_rfam_16S_model_bounds]> cmemit -c RF01959.cm | cmalign --outformat pfam RF01959.cm - > RF01959.c.stk
+<[17_0622_rfam_16S_model_bounds]> perl ssdraw-template-tools/svg2ps.pl RF01959.ssdraw.svg archaea-0p1.ps RF01959.c.stk > RF01959.ssdraw.ps
+
+<[17_0622_rfam_16S_model_bounds]> esl-ssdraw --no-cnt  RF01959.stk RF01959.ssdraw.ps RF01959.seed.ps
+# 6 page postscript saved to file RF01959.seed.ps.
+<[17_0622_rfam_16S_model_bounds]> esl-ssdraw --no-cnt  RF00177.stk RF00177.ssdraw.ps RF00177.seed.ps
+# 6 page postscript saved to file RF00177.seed.ps.
+
