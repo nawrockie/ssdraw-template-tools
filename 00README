@@ -6,3 +6,23 @@ When using Inkscape 0.91 on Mac OS 10.11:
   nucleotide x.
 - remove the 'label' attribute  
 
+-----------------------------
+EPN, Wed Aug 15 10:13:43 2018
+
+Staring with an existing postscript template that is just the
+incorrect length, and adjusting to the correct length. Incorrect
+length is X desired length is Y.
+
+This also works for adapting a different domain model, for example
+starting with archaeal LSU and adapting to bacterial LSU.
+
+1. Find CM-X and ssdraw template file SS-X that correspond to X.
+2. Find CM-Y that corresponds to Y.
+3. Emit consensus sequence from CM-Y and align to CM-X, then draw that
+   with SS-X and look for inserts and deletes.
+4. Convert SS-X to svg with ps2svg.pl
+5. Adapt in inkscape as instructions above, save modified SVG as SVG file
+6. Convert SVG back to ps with svg2ps.pl.
+
+
+
