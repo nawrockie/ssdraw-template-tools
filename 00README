@@ -24,5 +24,5 @@ starting with archaeal LSU and adapting to bacterial LSU.
 5. Adapt in inkscape as instructions above, save modified SVG as SVG file
 6. Convert SVG back to ps with svg2ps.pl.
 
-
+See 00LOG_18_0815_lsu_bac_ss_diagram for slightly more detail.
 

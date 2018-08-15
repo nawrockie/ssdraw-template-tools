@@ -1,0 +1,31 @@
+EPN, Wed Aug 15 10:09:54 2018
+
+<[18_0815_lsu_bac_ss_diagram]> pwd
+/Users/nawrockie/Dropbox/work/notebook/18_0815_lsu_bac_ss_diagram
+
+Purpose: Update a 2927 position bac LSU esl-ssdraw template for the
+         current Rfam 2925 position model.
+
+Related dirs:
+AT NCBI:
+/panfs/pan1/infernal/notebook/18_0716_gp1_lsu_ssu_searches/tom-email-20180805
+
+=============================
+EPN, Wed Aug 15 10:10:59 2018
+
+bac.lsu.2927-ssdraw.svg comes from
+/panfs/pan1/infernal/notebook/18_0716_gp1_lsu_ssu_searches/tom-email-20180805
+
+<[18_0815_lsu_bac_ss_diagram]> perl ~/src/ssdraw-template-tools/ps2svg.pl bac.lsu.2927-ssdraw.ps > bac.lsu.2927-ssdraw.svg
+
+I added 3 nts and deleted 5 based on bac.lsu.2927-v-RF02541.c.pdf
+
+Which was created with
+esl-ssdraw --indi bac.lsu.2827-v-RF02541.c.stk bac.lsu.2927-ssdraw.ps
+bac.lsu.2927-v-RF02541.c.ps in
+/panfs/pan1/infernal/notebook/18_0716_gp1_lsu_ssu_searches/tom-email-20180805
+At NCBI.
+
+<[18_0815_lsu_bac_ss_diagram]> perl ~/src/ssdraw-template-tools/svg2ps.pl bac.lsu.2925-ssdraw.svg bac.lsu.2927-ssdraw.ps RF02541.c.stk > RF02541.ssdraw.ps
+
+I added it to my github ssdraw-templates/ dir.
